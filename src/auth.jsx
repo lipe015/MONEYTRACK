@@ -23,7 +23,7 @@ export function AuthProvider({ children }) {
 
   async function login(email, password) {
     const matches = await api(`users?email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`)
-    if (!matches.length) throw new Error('E-mail ou senha incorretos.')
+    if (!matches.length) throw new Error('E-mail ou palavra-passe incorretos.')
     setUser(saveSession(matches[0]))
   }
 

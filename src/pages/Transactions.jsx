@@ -46,18 +46,18 @@ export default function Transactions() {
 
   return (
     <div>
-      <PageIntro title="Todas as transações" description="Pesquise e confira todas as suas receitas e despesas." action={<ButtonLink to="/transactions/new">Adicionar transação</ButtonLink>} />
+      <PageIntro title="Todas as transações" description="Pesquise e consulte todos os seus rendimentos e despesas." action={<ButtonLink to="/transactions/new">Adicionar transação</ButtonLink>} />
       <ErrorBanner message={error} />
       <div className="filter-bar">
-        <label className="search-field"><Search size={16} /><input aria-label="Buscar descrição" placeholder="Buscar descrições..." value={filters.search} onChange={(e) => setFilters({ ...filters, search: e.target.value })} /></label>
-        <select aria-label="Filtrar por tipo" value={filters.type} onChange={(e) => setFilters({ ...filters, type: e.target.value })}><option value="all">Todos os tipos</option><option value="income">Receita</option><option value="expense">Despesa</option></select>
+        <label className="search-field"><Search size={16} /><input aria-label="Pesquisar descrição" placeholder="Pesquisar descrições..." value={filters.search} onChange={(e) => setFilters({ ...filters, search: e.target.value })} /></label>
+        <select aria-label="Filtrar por tipo" value={filters.type} onChange={(e) => setFilters({ ...filters, type: e.target.value })}><option value="all">Todos os tipos</option><option value="income">Rendimento</option><option value="expense">Despesa</option></select>
         <select aria-label="Filtrar por categoria" value={filters.category} onChange={(e) => setFilters({ ...filters, category: e.target.value })}><option value="all">Todas as categorias</option>{categories.map((category) => <option key={category.id} value={category.id}>{category.name}</option>)}</select>
         <input aria-label="Filtrar por mês" type="month" value={filters.month} onChange={(e) => setFilters({ ...filters, month: e.target.value })} />
       </div>
       {loading ? <LoadingState /> : filtered.length ? <div className="panel table-panel"><div className="table-scroll"><table><thead><tr><th>Descrição</th><th>Categoria</th><th>Data</th><th>Tipo</th><th className="align-right">Valor</th><th aria-label="Ações" /></tr></thead><tbody>
         {filtered.map((item) => {
           const category = categories.find((entry) => String(entry.id) === String(item.categoryId))
-          return <tr key={item.id}><td><strong className="table-description">{item.description}</strong></td><td><CategoryBadge category={category} /></td><td>{dateLabel(item.date)}</td><td><span className={`type-label ${item.type}`}>{item.type === 'income' ? 'receita' : 'despesa'}</span></td><td className={`align-right table-amount ${item.type}`}>{item.type === 'income' ? '+' : '−'}{money(item.amount)}</td><td><div className="row-actions"><Link to={`/transactions/${item.id}/edit`} className="icon-button" aria-label={`Editar ${item.description}`}><Pencil size={15} /></Link><button type="button" className="icon-button danger" aria-label={`Excluir ${item.description}`} onClick={() => remove(item)}><Trash2 size={15} /></button></div></td></tr>
+          return <tr key={item.id}><td><strong className="table-description">{item.description}</strong></td><td><CategoryBadge category={category} /></td><td>{dateLabel(item.date)}</td><td><span className={`type-label ${item.type}`}>{item.type === 'income' ? 'rendimento' : 'despesa'}</span></td><td className={`align-right table-amount ${item.type}`}>{item.type === 'income' ? '+' : '−'}{money(item.amount)}</td><td><div className="row-actions"><Link to={`/transactions/${item.id}/edit`} className="icon-button" aria-label={`Editar ${item.description}`}><Pencil size={15} /></Link><button type="button" className="icon-button danger" aria-label={`Eliminar ${item.description}`} onClick={() => remove(item)}><Trash2 size={15} /></button></div></td></tr>
         })}
       </tbody></table></div><div className="table-footer">{filtered.length} {filtered.length === 1 ? 'transação encontrada' : 'transações encontradas'}</div></div> : <EmptyState title="Nenhuma transação encontrada" description={transactions.length ? 'Tente ajustar os filtros.' : 'Adicione sua primeira transação para vê-la aqui.'} action={<ButtonLink to="/transactions/new">Adicionar transação</ButtonLink>} />}
     </div>

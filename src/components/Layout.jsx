@@ -42,7 +42,7 @@ export default function Layout() {
           ))}
         </nav>
         <div className="sidebar-bottom">
-          <div className="demo-note"><span className="status-dot" /> Ambiente de demonstração <small>Salvo na API local de demonstração</small></div>
+          <div className="demo-note"><span className="status-dot" /> Ambiente de demonstração <small>Guardado na API local</small></div>
           <NavLink to="/profile" className="account-link">
             <span className="avatar">{initials}</span>
             <span className="account-name">{user.name}<small>Conta pessoal</small></span>
@@ -53,9 +53,9 @@ export default function Layout() {
       </aside>
       <main className="main-area">
         <header className="topbar">
-          <div><span className="eyebrow">SUAS FINANÇAS</span><h1>{title}</h1></div>
+          <div><span className="eyebrow">AS SUAS FINANÇAS</span><h1>{title}</h1></div>
           <div className="topbar-right">
-            <span className="today-label">{new Intl.DateTimeFormat('pt-BR', { weekday: 'long', day: 'numeric', month: 'long' }).format(today)}</span>
+            <span className="today-label">{new Intl.DateTimeFormat('pt-PT', { weekday: 'long', day: 'numeric', month: 'long' }).format(today)}</span>
             <span className="top-avatar">{initials}</span>
           </div>
         </header>

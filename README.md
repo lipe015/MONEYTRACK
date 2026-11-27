@@ -1,6 +1,6 @@
 # MoneyTrack
 
-Aplicação de finanças pessoais desenvolvida com React, Vite, React Router, Recharts e uma API de demonstração com JSON Server. Este é um projeto acadêmico, não um serviço financeiro.
+Aplicação de finanças pessoais desenvolvida com React, Vite, React Router, Recharts e uma API de demonstração com JSON Server. Este é um projeto académico, não um serviço financeiro. Os valores são apresentados em euros.
 
 ## Executar localmente
 
@@ -24,19 +24,19 @@ O Vite inicia em `http://localhost:5173` e encaminha as chamadas de `/api` para 
 - E-mail: `alex@example.com`
 - Senha: `moneytrack`
 
-Na tela de acesso, o botão **Preencher dados de demonstração** completa esses dados. Há também uma segunda conta isolada: `jamie@example.com`, com a mesma senha.
+No ecrã de acesso, o botão **Preencher dados de demonstração** completa estes dados. Existe também uma segunda conta isolada: `jamie@example.com`, com a mesma palavra-passe.
 
 ## Funcionalidades
 
-- Painel com receitas, despesas e saldo do mês, transações recentes, gráficos por categoria e fluxo financeiro.
-- Criar, editar e excluir transações; pesquisar descrições e filtrar por tipo, categoria e mês.
+- Painel com rendimentos, despesas e saldo do mês, transações recentes, gráficos por categoria e fluxo financeiro.
+- Criar, editar e eliminar transações; pesquisar descrições e filtrar por tipo, categoria e mês.
 - Criar categorias pessoais e definir orçamentos mensais por categoria, com avisos de limite próximo ou ultrapassado.
-- Editar nome e e-mail do perfil, validar cadastro e encerrar a sessão.
-- Cada transação, categoria e orçamento pertence a um usuário (`userId`); as telas consultam e exibem somente os registros da conta autenticada.
+- Editar o nome e o e-mail do perfil, validar o registo e terminar a sessão.
+- Cada transação, categoria e orçamento pertence a um utilizador (`userId`); as páginas consultam e apresentam apenas os registos da conta autenticada.
 
 ## Aviso de segurança
 
-Este projeto usa intencionalmente um banco JSON simples e autenticação ilustrativa para fins acadêmicos. A base de demonstração inclui credenciais de exemplo, e senhas de novas contas são enviadas à API simulada. **Não use credenciais reais nem dados financeiros sensíveis.** A sessão salva no LocalStorage contém somente o ID, o nome e o e-mail do usuário — nunca a senha. O JSON Server não oferece autorização no servidor; esta demonstração não é adequada para produção.
+Este projeto usa intencionalmente uma base de dados JSON simples e autenticação ilustrativa para fins académicos. A base de demonstração inclui credenciais de exemplo, e as palavras-passe de novas contas são enviadas à API simulada. **Não utilize credenciais reais nem dados financeiros sensíveis.** A sessão guardada no LocalStorage contém apenas o ID, o nome e o e-mail do utilizador — nunca a palavra-passe. O JSON Server não oferece autorização no servidor; esta demonstração não é adequada para produção.
 
 ## Verificações
 

@@ -15,9 +15,9 @@ export async function api(resource, options = {}) {
 }
 
 export const byUser = (resource, userId) => api(`${resource}?userId=${encodeURIComponent(userId)}`)
-export const money = (value) => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(Number(value) || 0)
+export const money = (value) => new Intl.NumberFormat('pt-PT', { style: 'currency', currency: 'EUR' }).format(Number(value) || 0)
 export const monthKey = (date = new Date()) => `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`
-export const dateLabel = (date) => new Intl.DateTimeFormat('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' }).format(new Date(`${date}T00:00:00`))
+export const dateLabel = (date) => new Intl.DateTimeFormat('pt-PT', { day: '2-digit', month: 'short', year: 'numeric' }).format(new Date(`${date}T00:00:00`))
 
 export function getErrorMessage(error) {
   if (error instanceof TypeError) return 'Não foi possível conectar à API de demonstração. Inicie com “npm run dev:api”.'

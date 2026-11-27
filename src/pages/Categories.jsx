@@ -45,7 +45,7 @@ export default function Categories() {
         setError('Esta categoria está vinculada a uma transação ou orçamento. Remova os vínculos antes de excluí-la.')
         return
       }
-      if (!window.confirm(`Excluir a categoria “${category.name}”?`)) return
+      if (!window.confirm(`Eliminar a categoria “${category.name}”?`)) return
       await api(`categories/${encodeURIComponent(category.id)}`, { method: 'DELETE' })
       setCategories((items) => items.filter((item) => item.id !== category.id))
       setError('')
@@ -55,7 +55,7 @@ export default function Categories() {
   }
 
   return <div>
-    <PageIntro title="Suas categorias" description="Organize suas despesas para entender melhor seus hábitos." />
+    <PageIntro title="As suas categorias" description="Organize as despesas para compreender melhor os seus hábitos." />
     <ErrorBanner message={error} />
     <div className="settings-grid">
       <section className="panel settings-panel"><span className="eyebrow">NOVA CATEGORIA</span><h3>Crie uma categoria</h3><form className="form-stack compact-form" onSubmit={submit}>
@@ -64,7 +64,7 @@ export default function Categories() {
         <button className="button">Adicionar categoria</button>
       </form></section>
       <section className="panel category-panel"><div className="panel-heading"><div><span className="eyebrow">ORGANIZAÇÃO</span><h3>Categorias</h3></div><span className="period-pill">{categories.length} no total</span></div>
-        {loading ? <LoadingState /> : categories.length ? <div className="category-grid">{categories.map((category) => <div className="category-card" key={category.id}><span className="category-color" style={{ backgroundColor: category.color }} /><strong>{category.name}</strong><button className="icon-button danger" type="button" aria-label={`Excluir ${category.name}`} onClick={() => remove(category)}><Trash2 size={15} /></button></div>)}</div> : <EmptyState title="Nenhuma categoria ainda" description="Adicione uma categoria para organizar suas finanças." />}
+        {loading ? <LoadingState /> : categories.length ? <div className="category-grid">{categories.map((category) => <div className="category-card" key={category.id}><span className="category-color" style={{ backgroundColor: category.color }} /><strong>{category.name}</strong><button className="icon-button danger" type="button" aria-label={`Eliminar ${category.name}`} onClick={() => remove(category)}><Trash2 size={15} /></button></div>)}</div> : <EmptyState title="Ainda não tem categorias" description="Adicione uma categoria para organizar as suas finanças." />}
       </section>
     </div>
   </div>

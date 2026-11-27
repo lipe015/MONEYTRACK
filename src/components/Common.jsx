@@ -25,7 +25,7 @@ export function EmptyState({ title, description, action }) {
 }
 
 export function LoadingState() {
-  return <div className="loading-state"><span className="spinner" /> Carregando suas finanças...</div>
+  return <div className="loading-state"><span className="spinner" /> A carregar as suas finanças...</div>
 }
 
 export function ErrorBanner({ message }) {

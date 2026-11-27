@@ -51,17 +51,17 @@ export default function TransactionForm() {
 
   return <div className="form-page">
     <Link to="/transactions" className="back-link"><ArrowLeft size={16} /> Voltar às transações</Link>
-    <div className="form-card"><span className="eyebrow">{editing ? 'ATUALIZE O LANÇAMENTO' : 'REGISTRE UM LANÇAMENTO'}</span><h2>{editing ? 'Editar transação' : 'Adicionar transação'}</h2><p className="form-description">Preencha os detalhes para manter seu panorama financeiro atualizado.</p>
+    <div className="form-card"><span className="eyebrow">{editing ? 'ATUALIZE O LANÇAMENTO' : 'REGISTE UM LANÇAMENTO'}</span><h2>{editing ? 'Editar transação' : 'Adicionar transação'}</h2><p className="form-description">Preencha os detalhes para manter o seu resumo financeiro atualizado.</p>
       <ErrorBanner message={error} />
       <form className="form-stack" onSubmit={submit}>
         <label>Descrição<input required maxLength="80" autoFocus value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} placeholder="Ex.: compras da semana" /></label>
         <div className="form-two-col">
-          <label>Valor (R$)<input type="number" min="0.01" step="0.01" required value={form.amount} onChange={(e) => setForm({ ...form, amount: e.target.value })} placeholder="0,00" /></label>
+          <label>Valor (€)<input type="number" min="0.01" step="0.01" required value={form.amount} onChange={(e) => setForm({ ...form, amount: e.target.value })} placeholder="0,00" /></label>
           <label>Data<input type="date" required value={form.date} onChange={(e) => setForm({ ...form, date: e.target.value })} /></label>
         </div>
-        <label>Tipo de transação<select value={form.type} onChange={(e) => setForm({ ...form, type: e.target.value })}><option value="expense">Despesa</option><option value="income">Receita</option></select></label>
+        <label>Tipo de transação<select value={form.type} onChange={(e) => setForm({ ...form, type: e.target.value })}><option value="expense">Despesa</option><option value="income">Rendimento</option></select></label>
         <label>Categoria<select value={form.categoryId} onChange={(e) => setForm({ ...form, categoryId: e.target.value })}><option value="">Sem categoria</option>{categories.map((category) => <option key={category.id} value={category.id}>{category.name}</option>)}</select></label>
-        {categories.length === 0 && <p className="field-note">Você ainda não tem categorias. Adicione uma na página Categorias.</p>}
+        {categories.length === 0 && <p className="field-note">Ainda não tem categorias. Adicione uma na página Categorias.</p>}
         <div className="form-actions"><Link to="/transactions" className="button button-secondary">Cancelar</Link><button className="button" disabled={busy || (editing && Boolean(error))}>{busy ? 'Salvando...' : editing ? 'Salvar alterações' : 'Salvar transação'}</button></div>
       </form>
     </div>
