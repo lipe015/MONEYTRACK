@@ -2,6 +2,7 @@ import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
 import { useState } from 'react'
 import { ArrowDownLeft, ArrowLeftRight, BarChart3, CircleUserRound, Coins, LogOut, Tags } from 'lucide-react'
 import { useAuth } from '../useAuth.js'
+import { IS_STATIC_DEMO } from '../api.js'
 
 const links = [
   { to: '/', label: 'Visão geral', icon: BarChart3, end: true },
@@ -42,7 +43,7 @@ export default function Layout() {
           ))}
         </nav>
         <div className="sidebar-bottom">
-          <div className="demo-note"><span className="status-dot" /> Ambiente de demonstração <small>Guardado na API local</small></div>
+          <div className="demo-note"><span className="status-dot" /> Ambiente de demonstração <small>{IS_STATIC_DEMO ? 'Guardado neste navegador' : 'Guardado na API local'}</small></div>
           <NavLink to="/profile" className="account-link">
             <span className="avatar">{initials}</span>
             <span className="account-name">{user.name}<small>Conta pessoal</small></span>
