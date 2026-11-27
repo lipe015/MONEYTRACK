@@ -1,16 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, HashRouter } from 'react-router-dom'
 import App from './App.jsx'
 import { AuthProvider } from './auth.jsx'
 import './styles.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <AuthProvider>
-        <App />
-      </AuthProvider>
-    </BrowserRouter>
+    {import.meta.env.PROD
+      ? <HashRouter><AuthProvider><App /></AuthProvider></HashRouter>
+      : <BrowserRouter><AuthProvider><App /></AuthProvider></BrowserRouter>}
   </React.StrictMode>,
 )

@@ -19,6 +19,12 @@ npm run dev
 
 O Vite inicia em `http://localhost:5173` e encaminha as chamadas de `/api` para o JSON Server em `http://localhost:3001`. O JSON Server grava as alterações em `db.json`.
 
+## Publicação no GitHub Pages
+
+O workflow `.github/workflows/deploy-pages.yml` publica automaticamente uma demonstração estática quando há alterações na branch `lipe015-moneytrack-finance-app`. No repositório, configure **Settings → Pages → Build and deployment → Source: GitHub Actions**. Após a primeira execução bem-sucedida, o site ficará disponível em `https://lipe015.github.io/MONEYTRACK/`.
+
+Na versão publicada, o frontend usa uma API simulada no navegador: as alterações ficam no armazenamento local do browser e não sincronizam entre dispositivos. A demonstração aceita apenas as contas de exemplo indicadas acima; não regista novas contas nem guarda palavras-passe no armazenamento local. O site é apenas para demonstração e não deve receber dados financeiros reais.
+
 ## Conta de demonstração
 
 - E-mail: `alex@example.com`

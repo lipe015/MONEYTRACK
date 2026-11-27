@@ -1,5 +1,6 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
 import { useAuth } from './useAuth.js'
+import { IS_STATIC_DEMO } from './api.js'
 import Layout from './components/Layout.jsx'
 import AuthPage from './pages/AuthPage.jsx'
 import Dashboard from './pages/Dashboard.jsx'
@@ -19,7 +20,7 @@ export default function App() {
   return (
     <Routes>
       <Route path="/login" element={user ? <Navigate to="/" replace /> : <AuthPage mode="login" />} />
-      <Route path="/register" element={user ? <Navigate to="/" replace /> : <AuthPage mode="register" />} />
+      <Route path="/register" element={IS_STATIC_DEMO || user ? <Navigate to={user ? '/' : '/login'} replace /> : <AuthPage mode="register" />} />
       <Route element={<Protected><Layout /></Protected>}>
         <Route index element={<Dashboard />} />
         <Route path="transactions" element={<Transactions />} />

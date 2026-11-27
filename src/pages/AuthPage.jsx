@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { ArrowDownLeft, ArrowRight, ShieldAlert } from 'lucide-react'
 import { useAuth } from '../useAuth.js'
 import { ErrorBanner } from '../components/Common.jsx'
-import { getErrorMessage } from '../api.js'
+import { getErrorMessage, IS_STATIC_DEMO } from '../api.js'
 
 export default function AuthPage({ mode }) {
   const isRegister = mode === 'register'
@@ -56,8 +56,8 @@ export default function AuthPage({ mode }) {
             {!isRegister && <div className="demo-credentials"><span>Experimente a demonstração</span><button type="button" onClick={() => setForm({ ...form, email: 'alex@example.com', password: 'moneytrack' })}>Preencher dados de demonstração</button></div>}
             <button type="submit" className="button auth-submit" disabled={busy}>{busy ? 'Aguarde...' : isRegister ? 'Criar conta' : 'Entrar'}<ArrowRight size={17} /></button>
           </form>
-          <p className="auth-switch">{isRegister ? 'Já tem uma conta?' : 'Ainda não utiliza o MoneyTrack?'} <Link to={isRegister ? '/login' : '/register'}>{isRegister ? 'Entrar' : 'Criar conta'}</Link></p>
-          <div className="academic-notice"><ShieldAlert size={16} /><span>Demonstração académica. A autenticação é ilustrativa e não oferece segurança para produção. As palavras-passe nunca são guardadas no armazenamento do navegador.</span></div>
+          {!IS_STATIC_DEMO && <p className="auth-switch">{isRegister ? 'Já tem uma conta?' : 'Ainda não utiliza o MoneyTrack?'} <Link to={isRegister ? '/login' : '/register'}>{isRegister ? 'Entrar' : 'Criar conta'}</Link></p>}
+          <div className="academic-notice"><ShieldAlert size={16} /><span>{IS_STATIC_DEMO ? 'Demonstração pública: os dados ficam apenas neste navegador. Não introduza dados financeiros reais; a autenticação é ilustrativa.' : 'Demonstração académica. A autenticação é ilustrativa e não oferece segurança para produção. As palavras-passe nunca são guardadas no armazenamento do navegador.'}</span></div>
         </div>
         <footer className="auth-footer">© 2026 MoneyTrack <span>·</span> Finanças com perspetiva.</footer>
       </section>
