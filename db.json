@@ -1,0 +1,33 @@
+{
+  "users": [
+    { "id": "1", "name": "Alex Morgan", "email": "alex@example.com", "password": "moneytrack" },
+    { "id": "2", "name": "Jamie Chen", "email": "jamie@example.com", "password": "moneytrack" }
+  ],
+  "categories": [
+    { "id": "cat-1", "userId": "1", "name": "Habitação", "color": "#C5A45D" },
+    { "id": "cat-2", "userId": "1", "name": "Alimentação", "color": "#D69A36" },
+    { "id": "cat-3", "userId": "1", "name": "Transporte", "color": "#6F8CC3" },
+    { "id": "cat-4", "userId": "1", "name": "Compras", "color": "#A879B8" },
+    { "id": "cat-5", "userId": "1", "name": "Ordenado", "color": "#27865B" },
+    { "id": "cat-6", "userId": "1", "name": "Saúde", "color": "#C94C4C" },
+    { "id": "cat-7", "userId": "2", "name": "Essenciais", "color": "#C5A45D" }
+  ],
+  "transactions": [
+    { "id": "tx-1", "userId": "1", "description": "Ordenado mensal", "amount": 5200, "type": "income", "categoryId": "cat-5", "date": "2026-11-01" },
+    { "id": "tx-2", "userId": "1", "description": "Renda de novembro", "amount": 1450, "type": "expense", "categoryId": "cat-1", "date": "2026-11-03" },
+    { "id": "tx-3", "userId": "1", "description": "Compras da semana", "amount": 126.4, "type": "expense", "categoryId": "cat-2", "date": "2026-11-06" },
+    { "id": "tx-4", "userId": "1", "description": "Passe de transporte", "amount": 58, "type": "expense", "categoryId": "cat-3", "date": "2026-11-08" },
+    { "id": "tx-5", "userId": "1", "description": "Projeto freelancer", "amount": 680, "type": "income", "categoryId": "cat-5", "date": "2026-11-12" },
+    { "id": "tx-6", "userId": "1", "description": "Jantar com amigos", "amount": 74.5, "type": "expense", "categoryId": "cat-2", "date": "2026-11-14" },
+    { "id": "tx-7", "userId": "1", "description": "Tênis de corrida", "amount": 112, "type": "expense", "categoryId": "cat-4", "date": "2026-11-18" },
+    { "id": "tx-8", "userId": "1", "description": "Farmácia", "amount": 32.8, "type": "expense", "categoryId": "cat-6", "date": "2026-11-21" },
+    { "id": "tx-9", "userId": "2", "description": "Ordenado mensal", "amount": 4100, "type": "income", "categoryId": "cat-7", "date": "2026-11-01" }
+  ],
+  "budgets": [
+    { "id": "budget-1", "userId": "1", "categoryId": "cat-1", "month": "2026-11", "amount": 1600 },
+    { "id": "budget-2", "userId": "1", "categoryId": "cat-2", "month": "2026-11", "amount": 500 },
+    { "id": "budget-3", "userId": "1", "categoryId": "cat-3", "month": "2026-11", "amount": 180 },
+    { "id": "budget-4", "userId": "1", "categoryId": "cat-4", "month": "2026-11", "amount": 250 },
+    { "id": "budget-5", "userId": "1", "categoryId": "cat-6", "month": "2026-11", "amount": 150 }
+  ]
+}
